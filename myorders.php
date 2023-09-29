@@ -164,9 +164,11 @@ $total = $qty;
                    <?php
                 if($row['paid_status']!=0){
                   echo "<a class='badge bg-success' href='?type=status&operation=deactive&id=".$row['id']."'>paid</a>&nbsp;";
+                  echo "<td><a class='btn btn-sm btn-primary' href='viewone.php?id=".$row['id']."'>View Receipt</a>&nbsp;</td>";
                 }else{
                   echo "<a class='badge bg-warning' href='?type=status&operation=active&id=".$row['id']."'>not paid</a>&nbsp;";
                   echo "<td><a class='btn btn-sm btn-primary' href='pay.php?id=".$row['id']."'>Pay</a>&nbsp;</td>";
+
                   echo "<td><a class='btn btn-sm btn-danger' href='?type=delete&id=".$row['id']."'>Cancel</a></td>";
               
                 }
@@ -187,7 +189,8 @@ $total = $qty;
                       </tr>
                     </tbody>
                   </table>
-                  <th>Total: <?php echo $total?></th>
+                  <th><strong style="color:red;">Total Unpaid: <?php echo $total?></strong></th>
+                  <br>
                   <a href="menu.php" class="btn btn-warning btn-lg">Continue Shopping</a>
 
                 </div>

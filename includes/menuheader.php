@@ -67,7 +67,7 @@ error_reporting(1);
           <li><a class="nav-link scrollto active" href="userpage.php">Home</a></li>
           <li><a class="nav-link scrollto" href="search.php">Search</a></li>
           <li><a class="nav-link scrollto" href="myorders.php">My Orders</a></li>
-          <li><a class="nav-link scrollto" href="#events">Events</a></li>        
+                 
           
           
           <li><a class="nav-link scrollto" href="logout.php">Logout</a></li>

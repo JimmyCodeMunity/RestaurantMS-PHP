@@ -15,8 +15,16 @@ if(isset($_POST['submit'])){
   $select = "SELECT * FROM booktable";
   $result = mysqli_query($conn,$select);
 
-  $insert = "INSERT INTO booktable(name,email,phone,bookdate,booktime,peoplenum,details)VALUES('$name','$email','$phone','$bdate','$time','$nop','$details')";
+  $row = mysqli_fetch_array($result);
+  if(mysqli_num_rows($result) >= 20){
+    $error[] = 'all tables booked';
+
+  }else{
+    $insert = "INSERT INTO booktable(name,email,phone,bookdate,booktime,peoplenum,details)VALUES('$name','$email','$phone','$bdate','$time','$nop','$details')";
   mysqli_query($conn,$insert);
+  $error[] = 'table booked successfully';
+
+  }
 }
 
 ?>
@@ -83,7 +91,7 @@ if(isset($_POST['submit'])){
           <li><a class="nav-link scrollto" href="menu.php">Menu</a></li>
           <li><a class="nav-link scrollto" href="search.php">Search</a></li>
           <li><a class="nav-link scrollto" href="myorders.php">My Orders</a></li>
-          <li><a class="nav-link scrollto" href="#events">Events</a></li>        
+                 
           
           
           <li><a class="nav-link scrollto" href="logout.php">Logout</a></li>
@@ -402,6 +410,19 @@ if(isset($_POST['submit'])){
         </div>
 
         <form action="" role="form" class="php-email" method="POST">
+          <div class="text-center">
+          <?php
+      if(isset($error)){
+         foreach($error as $error){
+            echo '<span class="alert alert-danger" style="width: 100%;">'.$error.'</span>';
+         };
+      };
+      ?>
+    </div>
+    <br>
+    <br>
+    <br>
+
           <div class="row">
             <div class="col-lg-4 col-md-6 form-group">
               <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" value="<?php echo $_SESSION['user_name']?>" data-rule="minlen:4" data-msg="Please enter at least 4 chars">

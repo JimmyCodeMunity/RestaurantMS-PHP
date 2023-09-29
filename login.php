@@ -164,6 +164,7 @@ if(isset($_POST['submit'])){
                   <form class="" action="" method="post">
           <div>
             <center>
+              <p>
           <?php
       if(isset($error)){
          foreach($error as $error){
@@ -171,6 +172,7 @@ if(isset($_POST['submit'])){
          };
       };
       ?>
+    </p>
     </center>
     </div>
       <br>

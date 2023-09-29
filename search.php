@@ -77,14 +77,14 @@ $result = mysqli_query($conn,$collect);
     
     
       <div class="card-image">
-        <img src="admindash/dashboard/images/<?=$row['food_photo']; ?>" alt="dp" class="img-a img-fluid" style="" width='100px' height='100px'>
+        <img src="admindash/dashboard/images/<?=$items['food_photo']; ?>" alt="dp" class="img-a img-fluid" style="" width='100px' height='100px'>
       </div>
-      <div class="namer card-title"><?php echo $row['foodname'];?></div>
-      <div><strong> <?php echo $row['foodprice']?></strong></div>
+      <div class="namer card-title"><?php echo $items['foodname'];?></div>
+      <div><strong> <?php echo $items['foodprice']?></strong></div>
       
     
     <div class="divider">
-      <?php echo "<a class='btn btn-small btn-primary' href='order.php?id=".$row['id']."'>Order</a>&nbsp;";?>
+      <?php echo "<a class='btn btn-small btn-primary' href='order.php?id=".$items['id']."'>Order</a>&nbsp;";?>
     </div>
   </div>
   
